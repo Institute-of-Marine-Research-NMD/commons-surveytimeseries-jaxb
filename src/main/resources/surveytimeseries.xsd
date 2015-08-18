@@ -42,9 +42,17 @@
     -->
     <xs:complexType name="CruiseSeriesType">
         <xs:sequence>
-            <xs:element name="CruiseSerie" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+            <xs:element name="CruiseSeriesS" type="CruiseSeriesDescriptionType" minOccurs="0" maxOccurs="unbounded" />
         </xs:sequence>
         <xs:attribute name="cruiseSerieId" type="xs:string" />
+    </xs:complexType>
+
+    <xs:complexType name="CruiseSeriesDescriptionType">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="cruiseSerieId" type="xs:string" />
+            </xs:extension>
+        </xs:simpleContent>
     </xs:complexType>
 
     <!--
@@ -53,13 +61,6 @@
     <xs:complexType name="SampleType">
         <xs:attribute name="stoxProjectId" type="xs:string" use="required" />
         <xs:attribute name="sampleTime" type="xs:string" use="required" />
-    </xs:complexType>
-
-<!--
-        CoverageType type.
-    -->
-    <xs:complexType name="StoXType">
-
     </xs:complexType>
 
 </xs:schema>
