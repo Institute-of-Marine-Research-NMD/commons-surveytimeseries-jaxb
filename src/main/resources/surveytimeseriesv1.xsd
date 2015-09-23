@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<xs:schema version="1.0"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified"
+           targetNamespace="http://www.imr.no/formats/surveytimeseries/v1"
+           xmlns="http://www.imr.no/formats/surveytimeseries/v1">
+
+    <xs:element name="SurveyTimeSeriesCollection" type="SurveyTimeSeriesCollectionType" />
+
+    <xs:element name="SurveyTimeSeries" type="SurveyTimeSeriesType" />
+
+    <!--
+        SurveyTimeSeries type.
+    -->
+    <xs:complexType name="SurveyTimeSeriesCollectionType">
+        <xs:sequence>
+            <xs:element name="SurveyTimeSeries" type="SurveyTimeSeriesType" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!--
+        SurveyTimeSerieType type.
+    -->
+    <xs:complexType name="SurveyTimeSeriesType">
+        <xs:sequence>
+            <xs:element name="SurveyTimeseriesDescription" type="xs:string" minOccurs="1" maxOccurs="1" />
+            <xs:element name="TimeStart" type="xs:string" minOccurs="1" maxOccurs="1" />
+            <xs:element name="TimeStop" type="xs:string" minOccurs="1" maxOccurs="1" />
+            <xs:element name="CruiseSeries" type="CruiseSeriesType"/>
+            <xs:element name="Samples" type="SamplesType"  />  <!-- minOccurs="1" maxOccurs="1"  -->
+        </xs:sequence>
+        <xs:attribute name="surveytimeseriesname" type="xs:string" />
+    </xs:complexType>
+
+    <xs:complexType name="SamplesType">
+        <xs:sequence>
+            <xs:element name="SampleType" type="SampleType" minOccurs="1" maxOccurs="unbounded" />
+        </xs:sequence>
+    </xs:complexType>
+    <!--
+        CruiseSeriesType type.
+    -->
+    <xs:complexType name="CruiseSeriesType">
+        <xs:sequence>
+            <xs:element name="CruiseSeriesS" type="CruiseSeriesDescriptionType" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+        <xs:attribute name="cruiseSerieId" type="xs:string" />
+    </xs:complexType>
+
+    <xs:complexType name="CruiseSeriesDescriptionType">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="cruiseSerieId" type="xs:string" />
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <!--
+        CoverageType type.
+    -->
+    <xs:complexType name="SampleType">
+        <xs:attribute name="stoxProjectId" type="xs:string" use="required" />
+        <xs:attribute name="sampleTime" type="xs:string" use="required" />
+    </xs:complexType>
+
+</xs:schema>

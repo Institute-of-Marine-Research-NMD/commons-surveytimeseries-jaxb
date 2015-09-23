@@ -9,7 +9,7 @@
     <!--
     This document is referenced from the pom and is used to change the generated classes.
     The following has been added. -->
-    <jxb:bindings schemaLocation="../resources/surveytimeseries.xsd" node="/xs:schema">
+    <jxb:bindings schemaLocation="../resources/surveytimeseriesv1.xsd" node="/xs:schema">
         <jxb:globalBindings generateElementProperty="false" >
             <jxb:serializable uid="1" />
         </jxb:globalBindings>
@@ -17,7 +17,7 @@
             <jxb:package name="no.imr.nmd.commons.surveytimeseries.jaxb" />
         </jxb:schemaBindings>
         <jxb:bindings>
-            <namespace:prefix name="stox" />
+            <namespace:prefix name="" />
         </jxb:bindings>
         <jxb:bindings node="//xs:complexType[@name='SurveyTimeSeriesCollectionType']">
             <annox:annotate>
