@@ -42,15 +42,15 @@
     -->
     <xs:complexType name="CruiseSeriesType">
         <xs:sequence>
-            <xs:element name="CruiseSeriesS" type="CruiseSeriesDescriptionType" minOccurs="0" maxOccurs="unbounded" />
+            <xs:element name="CruiseSeries" type="CruiseSeriesDescriptionType" minOccurs="0" maxOccurs="unbounded" />
         </xs:sequence>
-        <xs:attribute name="cruiseSerieId" type="xs:string" />
+        <xs:attribute name="cruiseSeriesName" type="xs:string" />
     </xs:complexType>
 
     <xs:complexType name="CruiseSeriesDescriptionType">
         <xs:simpleContent>
             <xs:extension base="xs:string">
-                <xs:attribute name="cruiseSerieId" type="xs:string" />
+                <xs:attribute name="cruiseSeriesId" type="xs:string" />
             </xs:extension>
         </xs:simpleContent>
     </xs:complexType>
