@@ -42,9 +42,8 @@
     -->
     <xs:complexType name="CruiseSeriesType">
         <xs:sequence>
-            <xs:element name="CruiseSeries" type="CruiseSeriesDescriptionType" minOccurs="0" maxOccurs="unbounded" />
+            <xs:element name="CSeries" type="CruiseSeriesDescriptionType" minOccurs="0" maxOccurs="unbounded" />
         </xs:sequence>
-        <xs:attribute name="cruiseSeriesName" type="xs:string" />
     </xs:complexType>
 
     <xs:complexType name="CruiseSeriesDescriptionType">
